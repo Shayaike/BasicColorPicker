@@ -3,12 +3,10 @@ window.onload = function() {
 }
 
 function main() {
-    const SelectedColor = document.getElementsByName('SelectedColor')
 
     // create Random color with rendom Color button work
     document.getElementById("randomColor").addEventListener("click", function() {
-        var randomColor = generateRandomHexCode()
-        hexOrRbgCheck(randomColor)
+        hexOrRbgCheck(generateRandomHexCode())
     })
 
     // change Text Color button work
@@ -25,6 +23,7 @@ function main() {
     document.getElementById("reset").addEventListener("click", reset)
 
     // find color from buttons
+    const SelectedColor = document.getElementsByName('SelectedColor')
     for (let i = 0; i < SelectedColor.length; i++) {
         SelectedColor[i].addEventListener('click', function() {
             hexOrRbgCheck(SelectedColor[i].value)
@@ -32,30 +31,29 @@ function main() {
     }
 }
 //check tha what is selected Hex Or RGB then return it's Hex or RGB and Chenge the color show box color
-function hexOrRbgCheck(randomColor) {
+function hexOrRbgCheck(color) {
     const hexOrRbgCheck = document.querySelector("input[name=Color_Code]:checked").value
     if (hexOrRbgCheck === 'Hex') {
         document.getElementById('colorcodename').innerText = 'Hex'
-        document.getElementById('colorcode').innerText = randomColor
-        document.getElementById("colorshow").style.backgroundColor = randomColor
+        document.getElementById('colorcode').innerText = color
+        document.getElementById("colorshow").style.backgroundColor = color
 
     } else if (hexOrRbgCheck === 'rgb') {
         document.getElementById('colorcodename').innerText = 'RGB'
-        document.getElementById('colorcode').innerText = hexToRGB(randomColor)
-        document.getElementById("colorshow").style.backgroundColor = randomColor
+        document.getElementById('colorcode').innerText = hexToRGB(color)
+        document.getElementById("colorshow").style.backgroundColor = color
 
     }
 }
 
 //Genarate Rendom Hex Color
 function generateRandomHexCode() {
-    let n = (Math.random() * 0xfffff * 1000000).toString(16);
-    return '#' + n.slice(0, 6);
+    return '#' + ((Math.random() * 0xfffff * 1000000).toString(16)).slice(0, 6);
 }
 
 //Hex Color to RGB Color Converter
-function hexToRGB(randomColor) {
-    let colorArray = randomColor.toString().split('')
+function hexToRGB(color) {
+    let colorArray = color.toString().split('')
     return `rgb(${parseInt((colorArray[1] + colorArray[2]), 16)},${parseInt((colorArray[3] + colorArray[4]), 16)},${parseInt((colorArray[5] + colorArray[6]), 16)})`
 }
 
