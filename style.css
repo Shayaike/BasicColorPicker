@@ -17,7 +17,21 @@ body {
 
 .grid-container>button {
     text-align: center;
-    padding: 10% 0;
+    padding: 15% 0;
+    border-color: white;
+}
+
+.active,
+.grid-container>button:hover {
+    border-color: rgb(255, 1, 1);
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.active {
+    border-color: rgb(255, 1, 1);
+    border-bottom-right-radius: 1rem;
+    border-top-left-radius: 1rem;
 }
 
 input {
@@ -52,8 +66,8 @@ h4 {
 .box {
     width: 200px;
     border: 2px solid rgb(0, 0, 0);
-    padding: 1%;
-    margin: 0 1% 0 0;
+    padding: 2%;
+    margin: 0 2% 0 0;
 }
 
 input[type="button"] {

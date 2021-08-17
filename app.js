@@ -1,19 +1,17 @@
 window.onload = function() {
     main();
 }
-const SelectedColor = document.getElementsByName('SelectedColor')
 
 function main() {
+    const SelectedColor = document.getElementsByName('SelectedColor')
 
     // create Random color with rendom Color button work
-
     document.getElementById("randomColor").addEventListener("click", function() {
-        var randomColor = "#000000".replace(/0/g, function() { return (~~(Math.random() * 16)).toString(16); });
-        hexorrbgcheck(randomColor)
+        var randomColor = generateRandomHexCode()
+        hexOrRbgCheck(randomColor)
     })
 
     // change Text Color button work
-
     document.getElementById("TextColor").addEventListener("click", function() {
         document.body.style.color = document.getElementById('colorcode').innerText
     })
@@ -24,54 +22,49 @@ function main() {
     })
 
     // reset button work
-    document.getElementById("reset").addEventListener("click", function() {
-            document.body.style.backgroundColor = '#ffffff'
-            document.body.style.color = '#000000'
-            document.getElementById('colorshow').style.backgroundColor = '#ffffff'
-            document.getElementById('colorcode').innerText = "Code"
-            document.getElementById('colorcodename').innerText = "Hex/RGB"
-        })
-        // find color from buttons
+    document.getElementById("reset").addEventListener("click", reset)
 
+    // find color from buttons
     for (let i = 0; i < SelectedColor.length; i++) {
         SelectedColor[i].addEventListener('click', function() {
-            hexorrbgcheck(SelectedColor[i].value)
+            hexOrRbgCheck(SelectedColor[i].value)
         })
     }
-
-}
-//Hex Color to RGB Color Converter
-function hex2rgb(randomColor) {
-    let r = 0,
-        g = 0,
-        b = 0;
-
-    // 3 digits
-    if (randomColor.length == 4) {
-        r = "0x" + randomColor[1] + randomColor[1];
-        g = "0x" + randomColor[2] + randomColor[2];
-        b = "0x" + randomColor[3] + randomColor[3];
-
-        // 6 digits
-    } else if (randomColor.length == 7) {
-        r = "0x" + randomColor[1] + randomColor[2];
-        g = "0x" + randomColor[3] + randomColor[4];
-        b = "0x" + randomColor[5] + randomColor[6];
-    }
-
-    var rgb = "rgb(" + +r + "," + +g + "," + +b + ")";
-    return rgb;
 }
 //check tha what is selected Hex Or RGB then return it's Hex or RGB and Chenge the color show box color
-function hexorrbgcheck(randomColor) {
-    const hexorrbgcheck = document.querySelector("input[name=Color_Code]:checked").value
-    if (hexorrbgcheck === 'Hex') {
+function hexOrRbgCheck(randomColor) {
+    const hexOrRbgCheck = document.querySelector("input[name=Color_Code]:checked").value
+    if (hexOrRbgCheck === 'Hex') {
         document.getElementById('colorcodename').innerText = 'Hex'
         document.getElementById('colorcode').innerText = randomColor
         document.getElementById("colorshow").style.backgroundColor = randomColor
-    } else if (hexorrbgcheck === 'rgb') {
+
+    } else if (hexOrRbgCheck === 'rgb') {
         document.getElementById('colorcodename').innerText = 'RGB'
-        document.getElementById('colorcode').innerText = hex2rgb(randomColor)
+        document.getElementById('colorcode').innerText = hexToRGB(randomColor)
         document.getElementById("colorshow").style.backgroundColor = randomColor
+
     }
+}
+
+//Genarate Rendom Hex Color
+function generateRandomHexCode() {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+}
+
+//Hex Color to RGB Color Converter
+function hexToRGB(randomColor) {
+    let colorArray = randomColor.toString().split('')
+    return `rgb(${parseInt((colorArray[1] + colorArray[2]), 16)},${parseInt((colorArray[3] + colorArray[4]), 16)},${parseInt((colorArray[5] + colorArray[6]), 16)})`
+}
+
+// create reset function
+function reset() {
+    document.body.style.backgroundColor = '#ffffff'
+    document.body.style.color = '#000000'
+    document.getElementById('colorshow').style.backgroundColor = '#ffffff'
+    document.getElementById('colorcode').innerText = "Code"
+    document.getElementById('colorcodename').innerText = "Hex/RGB"
+    document.getElementById('Hex').checked = true
 }
