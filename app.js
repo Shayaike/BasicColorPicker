@@ -37,18 +37,18 @@ function hexOrRbgCheck(color) {
         document.getElementById('colorcodename').innerText = 'Hex'
         document.getElementById('colorcode').innerText = color
         document.getElementById("colorshow").style.backgroundColor = color
-
     } else if (hexOrRbgCheck === 'rgb') {
         document.getElementById('colorcodename').innerText = 'RGB'
         document.getElementById('colorcode').innerText = hexToRGB(color)
         document.getElementById("colorshow").style.backgroundColor = color
 
     }
+
 }
 
 //Genarate Rendom Hex Color
 function generateRandomHexCode() {
-    return '#' + ((Math.random() * 0xfffff * 1000000).toString(16)).slice(0, 6);
+    return '#' + ((Math.random() * 10000 * 255 * 255 * 255).toString(16)).slice(0, 6);
 }
 
 //Hex Color to RGB Color Converter
