@@ -1,0 +1,130 @@
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-container>button {
+    text-align: center;
+    padding: 10% 0;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #333;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+}
+
+.select {
+    padding: 1rem;
+    display: flex;
+}
+
+.hex {
+    display: flex;
+    align-items: baseline;
+}
+
+.rgb {
+    display: flex;
+    align-items: baseline;
+    margin-left: 5rem;
+}
+
+h4 {
+    margin: 2rem 0 0 0;
+    padding: 0;
+}
+
+.box {
+    width: 200px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 1%;
+    margin: 0 1% 0 0;
+}
+
+input[type="button"] {
+    width: 260px;
+    padding: 0.5rem 2rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 0.15rem;
+    margin: 2rem 2rem 0 0;
+}
+
+.rgb1 {
+    background-color: #FF3333;
+}
+
+.rgb2 {
+    background-color: #FCFF34;
+}
+
+.rgb3 {
+    background-color: #58FD00;
+}
+
+.rgb4 {
+    background-color: #00FD8E;
+}
+
+.rgb5 {
+    background-color: #00DEFD;
+}
+
+.rgb6 {
+    background-color: #007FFD;
+}
+
+.rgb7 {
+    background-color: #002AFD;
+}
+
+.rgb8 {
+    background-color: #7300FD;
+}
+
+.rgb9 {
+    background-color: #C400FD;
+}
+
+.rgb10 {
+    background-color: #FD00CB;
+}
+
+.rgb11 {
+    background-color: #FD005C;
+}
+
+.rgb12 {
+    background-color: #FD0000;
+}
+
+.rgb13 {
+    background-color: #762828;
+}
+
+.rgb14 {
+    background-color: #9D2C91;
+}
+
+.rgb15 {
+    background-color: #343781;
+}
+
+.rgb16 {
+    background-color: #347C81;
+}

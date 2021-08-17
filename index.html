@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <title>Color Picker</title>
+</head>
+
+<body>
+    <h1>Color Picker</h1>
+
+    Thsoe Text color will be change if you want to change it.
+
+    <div class="grid-container">
+        <button class="rgb1" name='SelectedColor' value="#FF3333"></button>
+        <button class="rgb2" name='SelectedColor' value="#FCFF34"></button>
+        <button class="rgb3" name='SelectedColor' value="#58FD00"></button >
+        <button class="rgb4" name='SelectedColor' value="#00FD8E"></button >
+        <button class="rgb5" name='SelectedColor' value="#00DEFD"></button >
+        <button class="rgb6" name='SelectedColor' value="#007FFD"></button >
+        <button class="rgb7" name='SelectedColor' value="#002AFD"></button >
+        <button class="rgb8" name='SelectedColor' value="#7300FD"></button >
+        <button class="rgb9" name='SelectedColor' value="#C400FD"></button >
+        <button class="rgb10" name='SelectedColor' value="#FD00CB"></button >
+        <button class="rgb11" name='SelectedColor' value="#FD005C"></button >
+        <button class="rgb12" name='SelectedColor' value="#FD0000"></button >
+        <button class="rgb13" name='SelectedColor' value="#762828"></button >
+        <button class="rgb14" name='SelectedColor' value="#9D2C91"></button >
+        <button class="rgb15" name='SelectedColor' value="#343781"></button >
+        <button class="rgb16" name='SelectedColor' value="#347C81"></button >
+    </div>
+    <div>
+        <h4>Which Color Code do you want?</h4>
+    </div>
+    <div class="select">
+        <input type="radio" id="Hex" name="Color_Code" value="Hex" class="hex" checked>
+        <label for="html">Hex</label>
+        <input type="radio" id="rgb" name="Color_Code" value="rgb" class="rgb">
+        <label for="css">RGB</label>
+    </div>
+    <div>
+        <h2 id="colorcodename" value='' >Hex/RGB</h2>
+        <h2 id="colorcode" value=''>Code</h2>
+    </div>
+    <div class="box" id="colorshow">
+        <h2  value='' ></h2>
+    </div>
+    <div>
+        <input type="button" id="randomColor" value="Rendom Color">
+    </div>
+    <div>
+        <input type="button" id="TextColor" value="Change Text Color">
+    </div>
+    <div>
+        <input type="button" id="ChangeBackgroundColor" value="Change Background Color">
+    </div>
+    <div>
+        <input type="button" id="reset" value="Reset">
+    </div>
+
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>
